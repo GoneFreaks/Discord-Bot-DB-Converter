@@ -25,4 +25,9 @@ public class ResultDTO {
 	public List<PlaylistDTO> getPlaylists() {
 		return playlists;
 	}
+	
+	@Override
+	public String toString() {
+		return "Channels: " + channels.size() + " | " + "Tracks: " + tracks.size() + " | " + "Playlists: " + playlists.size();
+	}
 }

@@ -19,7 +19,6 @@ public class DA {
 		List<ChannelDTO> channels = readChannels(cMan);
 		List<TrackDTO> tracks = readTracks(cMan);
 		List<PlaylistDTO> playlists = readPlaylists(cMan);
-		System.out.println(channels.size() + "\t" + tracks.size() + "\t" + playlists.size());
 		return new ResultDTO(channels, tracks, playlists);
 	}
 	
@@ -56,11 +55,11 @@ public class DA {
 		return result;
 	}
 	
-	public static void write (ConnectionManager cMan, ResultDTO input) throws SQLException {
+	public static ResultDTO write (ConnectionManager cMan, ResultDTO input) throws SQLException {
 		writeChannels(cMan, input.getChannels());
 		writeTracks(cMan, input.getTracks());
 		writePlaylists(cMan, input.getPlaylists());
-		read(cMan);
+		return read(cMan);
 	}
 	
 	private static int[] writeChannels (ConnectionManager cMan, List<ChannelDTO> channels) throws SQLException {

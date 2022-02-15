@@ -28,8 +28,9 @@ public class Main {
 		}
 		
 		try {
-			ResultDTO result = DA.read(src);
-			DA.write(dest, result);
+			ResultDTO read = DA.read(src);
+			ResultDTO write = DA.write(dest, read);
+			System.out.println("Read(src):\n\t" + read + "\n\nWrite(dest):\n\t" + write);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
